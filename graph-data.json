@@ -1,0 +1,37 @@
+{
+  "nodes": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"],
+  "edges": {
+    "A": [{"node": "B", "weight": 5}, {"node": "C", "weight": 10}],
+    "B": [{"node": "A", "weight": 5}, {"node": "D", "weight": 2}, {"node": "E", "weight": 4}],
+    "C": [{"node": "A", "weight": 10}, {"node": "E", "weight": 3}, {"node": "F", "weight": 7}],
+    "D": [{"node": "B", "weight": 2}, {"node": "F", "weight": 1}],
+    "E": [{"node": "B", "weight": 4}, {"node": "C", "weight": 3}, {"node": "G", "weight": 2}],
+    "F": [{"node": "C", "weight": 7}, {"node": "D", "weight": 1}, {"node": "H", "weight": 3}],
+    "G": [{"node": "E", "weight": 2}, {"node": "H", "weight": 5}],
+    "H": [{"node": "F", "weight": 3}, {"node": "G", "weight": 5}, {"node": "I", "weight": 4}],
+    "I": [{"node": "H", "weight": 4}, {"node": "J", "weight": 6}],
+    "J": [{"node": "I", "weight": 6}, {"node": "K", "weight": 8}],
+    "K": [{"node": "J", "weight": 8}, {"node": "L", "weight": 9}],
+    "L": [{"node": "K", "weight": 9}, {"node": "M", "weight": 3}],
+    "M": [{"node": "L", "weight": 3}, {"node": "N", "weight": 7}],
+    "N": [{"node": "M", "weight": 7}, {"node": "O", "weight": 5}],
+    "O": [{"node": "N", "weight": 5}]
+  },
+  "coordinates": {
+    "A": [51.505, -0.09],
+    "B": [51.515, -0.1],
+    "C": [51.525, -0.11],
+    "D": [51.535, -0.12],
+    "E": [51.545, -0.13],
+    "F": [51.555, -0.14],
+    "G": [51.565, -0.15],
+    "H": [51.575, -0.16],
+    "I": [51.585, -0.17],
+    "J": [51.595, -0.18],
+    "K": [51.605, -0.19],
+    "L": [51.615, -0.2],
+    "M": [51.625, -0.21],
+    "N": [51.635, -0.22],
+    "O": [51.645, -0.23]
+  }
+}
