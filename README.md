@@ -47,8 +47,9 @@ Users can select start, end, and waypoint nodes directly on the map and see real
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/gsinem/ai_project.git
 2.Navigate into the project directory:
+ ```bash
 cd ai_project
 
 ## License
