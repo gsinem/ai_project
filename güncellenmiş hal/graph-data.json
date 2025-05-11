@@ -1,0 +1,36 @@
+{
+    "nodes": ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+    "edges": {
+        "A": [{"node": "B", "weight": 2}, {"node": "C", "weight": 4}],
+        "B": [{"node": "A", "weight": 2}, {"node": "D", "weight": 3}, {"node": "E", "weight": 2}],
+        "C": [{"node": "A", "weight": 4}, {"node": "F", "weight": 5}],
+        "D": [{"node": "B", "weight": 3}, {"node": "E", "weight": 1}, {"node": "G", "weight": 6}],
+        "E": [{"node": "B", "weight": 2}, {"node": "D", "weight": 1}, {"node": "H", "weight": 3}],
+        "F": [{"node": "C", "weight": 5}, {"node": "I", "weight": 2}],
+        "G": [{"node": "D", "weight": 6}, {"node": "H", "weight": 1}],
+        "H": [{"node": "E", "weight": 3}, {"node": "G", "weight": 1}, {"node": "I", "weight": 4}],
+        "I": [{"node": "F", "weight": 2}, {"node": "H", "weight": 4}]
+    },
+    "coordinates": {
+        "A": [37.215, 28.363],
+        "B": [37.217, 28.367],
+        "C": [37.213, 28.370],
+        "D": [37.220, 28.370],
+        "E": [37.222, 28.374],
+        "F": [37.210, 28.375],
+        "G": [37.225, 28.378],
+        "H": [37.224, 28.380],
+        "I": [37.212, 28.380]
+    },
+    "landmarks": {
+        "A": "Muğla Center",
+        "B": "Sınırsızlık Meydanı",
+        "C": "Muğla Museum",
+        "D": "Menteşe Belediyesi",
+        "E": "Muğla University",
+        "F": "Muğla Bus Terminal",
+        "G": "Muğla Hospital",
+        "H": "Muğla Stadium",
+        "I": "Muğla Park"
+    }
+} 

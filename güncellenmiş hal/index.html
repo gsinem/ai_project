@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Route Navigator</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="sidebar">
+        <h1>Smart Route Navigator</h1>
+        
+        <!-- Node Selection Section -->
+        <div class="section">
+            <h3>Select Points</h3>
+            <div class="form-group">
+                <label for="start-select">Start Point</label>
+                <select id="start-select"></select>
+            </div>
+            <div class="form-group">
+                <label for="end-select">End Point</label>
+                <select id="end-select"></select>
+            </div>
+        </div>
+
+        <!-- Algorithm Selection Section -->
+        <div class="section">
+            <h3>Algorithm</h3>
+            <div class="button-group">
+                <button id="dijkstra-btn" class="alg-btn active">Dijkstra</button>
+                <button id="astar-btn" class="alg-btn">A*</button>
+                <button id="osrm-btn" class="alg-btn">Real Roads</button>
+            </div>
+        </div>
+
+        <!-- Action Buttons Section -->
+        <div class="section">
+            <h3>Actions</h3>
+            <div class="button-group">
+                <button id="find-path" class="main-btn">Find Path</button>
+                <button id="clear-map" class="main-btn secondary">Clear Map</button>
+            </div>
+            <div class="button-group">
+                <button id="show-alternatives" class="main-btn secondary">Show Alternatives</button>
+                <button id="show-landmarks" class="main-btn secondary">Show Landmarks</button>
+            </div>
+        </div>
+
+        <!-- Graph Editor Section -->
+        <div class="section editor-section">
+            <h3>Graph Editor</h3>
+            
+            <!-- Add Node Section -->
+            <div class="form-group">
+                <label for="new-node-id">New Node ID:</label>
+                <input type="text" id="new-node-id" placeholder="Enter node ID">
+                <div id="location-inputs" class="hidden">
+                    <input type="number" id="node-lat" placeholder="Latitude" step="any">
+                    <input type="number" id="node-lng" placeholder="Longitude" step="any">
+                </div>
+                <div class="button-group">
+                    <button id="add-by-click" class="edit-btn">Add by Map Click</button>
+                    <button id="add-node" class="edit-btn">Add Node</button>
+                </div>
+            </div>
+
+            <!-- Add Edge Section -->
+            <div class="form-group">
+                <label for="from-node">From Node:</label>
+                <select id="from-node"></select>
+                <label for="to-node">To Node:</label>
+                <select id="to-node"></select>
+                <label for="edge-weight">Weight (km):</label>
+                <input type="number" id="edge-weight" placeholder="Enter weight" step="any">
+                <button id="add-edge" class="edit-btn">Add/Update Edge</button>
+            </div>
+
+            <!-- Remove Element Section -->
+            <div class="form-group">
+                <label for="remove-element">Remove Element:</label>
+                <select id="remove-element">
+                    <option value="">Select element to remove</option>
+                </select>
+                <button id="remove-element-btn" class="edit-btn">Remove Selected</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="route-info-panel" id="route-info">
+        <div class="panel-header">
+            <h3>Route Information</h3>
+        </div>
+        <div class="route-stats">
+            <div class="stat-item">
+                <span class="stat-label">Algorithm:</span>
+                <span class="stat-value" id="algo-name">-</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-road"></i>
+                <span>Distance: <span id="distance">0</span> km</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <span>Est. Time: <span id="total-time">0</span> min</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Computation Time:</span>
+                <span class="stat-value" id="comp-time">0</span>
+                <span class="stat-unit">ms</span>
+            </div>
+        </div>
+        <div class="route-directions">
+            <div class="directions-header">
+                <h4>Step by Step Directions</h4>
+            </div>
+            <div class="directions-list" id="steps">
+                <!-- Steps will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet Routing Machine -->
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <!-- Custom Scripts -->
+    <script src="dijkstra.js"></script>
+    <script src="astar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
